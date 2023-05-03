@@ -1,9 +1,16 @@
 import tkinter
 import tkinter.scrolledtext
+import subprocess
     
 def write():
     code = text_area.get('1.0', 'end')
     print(code )
+    with open("code.txt", "w") as f:
+        f.write(code)
+    cmd_output = subprocess.check_output(['cd'])
+
+    # Print the output
+    print(cmd_output.decode('utf-8'))
     message = f"compiled successfully"
     output_area.config(state='normal')
     output_area.delete('1.0', 'end')
